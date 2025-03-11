@@ -6,7 +6,9 @@ export class createUser {
     userName : string
 
     @IsEmail({},{message : "Invalid email format!"})
-    // @Validate()
     @IsNotEmpty({message : "Email should not be empty!"})
     email : string
+
+    @IsNotEmpty({message : "Password is required!"})
+    password : string 
 }
