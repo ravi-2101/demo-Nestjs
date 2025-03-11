@@ -1,4 +1,5 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Req } from '@nestjs/common';
+import { UserPipe } from './user.pipe';
+import { Body, Controller, Delete, Get, Param, Post, Put,  UsePipes } from '@nestjs/common';
 import { AppService } from 'src/app.service';
 import { createUser } from './user.tdo';
 
@@ -99,5 +100,11 @@ export class UserController {
                 message : error
             }
         }
+    }
+
+    @Get('/getdata/:id')
+    @UsePipes(UserPipe)
+    getById(@Param('id') id : number){
+        return id
     }
 }
