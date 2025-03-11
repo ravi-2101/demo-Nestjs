@@ -4,7 +4,7 @@ import { Request } from 'express';
 @Injectable()
 export class AuthenticationMiddleware implements NestMiddleware {
   use(req: Request, res: any, next: () => void) {
-    console.log("Authentication")
+    console.log("Authentication",req?.path)
     next();
   }
 }
